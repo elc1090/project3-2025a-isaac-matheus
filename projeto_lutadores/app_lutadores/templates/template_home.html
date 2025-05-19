@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+    <h1>{{ titulo }}</h1>
+
+    {% if existe %}
+        <h2>Informações do Usuário</h2>
+        <p>Nome: {{ usuario.nome }}</p>
+        <p>Idade: {{ usuario.idade }}</p>
+        <p>Email: {{ usuario.email }}</p>
+
+        <h3>Ataques:</h3>
+        <ul>
+            {% for ataque in ataques %}
+                <li>{{ ataque }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Você não existe.</p>
+    {% endif %}
+</body>
+</html>
