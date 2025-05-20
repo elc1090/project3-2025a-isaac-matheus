@@ -1,3 +1,9 @@
+Rodar o servidor:
+(ir na pasta onde manage.py está)
+
+python manage.py runserver
+
+
 ativar ambiente virtual:
 
 virtual/Scripts/activate
@@ -10,5 +16,5 @@ python -m venv "nome" (cria o ambiente)
 
 migrar ambientes virtuais:
 
-pip freeze > requirements.txt (pega o que ambiente X tem, precisa estar ativado)
+pip freeze > requirements.txt (pega o que ambiente X tem, ambiente precisa estar ativado)
 pip install -r requirements.txt (coloca o que tinha no ambiente antigo no novo)
