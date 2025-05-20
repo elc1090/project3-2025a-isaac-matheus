@@ -74,11 +74,16 @@ WSGI_APPLICATION = 'projeto_lutadores.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE":   "django.db.backends.postgresql",
+        "HOST":     "db.ilermoovzaxjeenkfmts.supabase.co",
+        "PORT":     "5432",
+        "NAME":     "postgres",          # nome do database extraído da connection string
+        "USER":     "postgres",          # usuário padrão do DB
+        "PASSWORD": "Homemtorta123",     # senha do DB gerada pelo Supabase
     }
 }
+
 
 
 # Password validation
