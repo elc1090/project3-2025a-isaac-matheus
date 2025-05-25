@@ -157,3 +157,62 @@ body{
     display: block;
     margin: 0 auto;
 }
+
+
+
+
+.cabecalho2-titulo{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 400;
+    font-size: 64px;
+    color: #FFF2E7;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.conteudo2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  color: #FFF2E7;
+  align-items: center;
+}
+
+.conteudo2 label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.conteudo2 input,
+.conteudo2 textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.conteudo2-botoes{
+    display: block;
+    align-items: center;
+}
+
+.conteudo2-botao{
+    background-color: #b4967d;
+    width: 180px;
+    height: 60px;
+    border: none;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family:  'Times New Roman', Times, serif;
+    font-size: 24px;
+    color: #FFF2E7;
+    font-weight: 400;
+}
+
+.conteudo2-botao:hover{
+    background-color: #A27B5C;
+}
