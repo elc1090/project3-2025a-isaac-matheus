@@ -196,8 +196,10 @@ body{
 }
 
 .conteudo2-botoes{
-    display: block;
+    display: flex;
     align-items: center;
+    flex-direction: row;
+    gap: 1rem;
 }
 
 .conteudo2-botao{
@@ -215,4 +217,21 @@ body{
 
 .conteudo2-botao:hover{
     background-color: #A27B5C;
+}
+
+.conteudo2-botao-excluir{
+    background-color: #a75648;
+    width: 180px;
+    height: 60px;
+    border: none;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family:  'Times New Roman', Times, serif;
+    font-size: 24px;
+    color: #FFF2E7;
+    font-weight: 400;
+}
+
+.conteudo2-botao-excluir:hover{
+    background-color: #552017;
 }
