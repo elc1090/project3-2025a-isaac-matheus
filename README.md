@@ -2,6 +2,25 @@
 
 Este é um projeto simples em Django que implementa um sistema de autenticação com tela de login, logout seguro via POST, e dois usuários criados automaticamente.
 
+### Desenvolvedores
+Matheus - Sistemas de Informação
+João Marcos - Sistemas de Informação
+Isaac - Sistemas para internet
+
+#### Tecnologias
+-HTML
+-CSS
+-Python
+-Django
+
+#### Ambiente de desenvolvimento
+-VS Code
+-Pixlr(Para criação da logo)
+
+#### Referências e créditos
+-ChatGPT(Auxílio no desenvolvimente e criação de algumas imagens)
+-
+
 ##  Requisitos
 
 - Python 3.10 ou superior
@@ -84,3 +103,4 @@ projeto_lutadores_login/
 - O projeto usa SQLite por padrão.
 
 ---
+Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2025a) em 2025a
