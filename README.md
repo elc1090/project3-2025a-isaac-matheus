@@ -2,7 +2,7 @@
 
 Este é um projeto simples em Django que implementa um sistema de autenticação com tela de login, logout seguro via POST, e dois usuários criados automaticamente.
 
-![Substitua a imagem ao lado por um screenshot do seu projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
+![Screenshot do Site](projeto_lutadores/staticfiles/screenshot_typesouls.jpg "Screenshot do projeto")
 
 ### Desenvolvedores
 Matheus - Sistemas de Informação
