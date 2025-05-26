@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Criar Lutador{% endblock %}
+
+{% block content %}
+  <main class="conteudo2">
+    <h1 class="cabecalho2-titulo">Criar Novo Lutador</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label>Nome:
+        <input type="text" name="nome" required />
+      </label>
+
+      <label>Idade:
+        <input type="number" name="idade" min="-2147483648" max="2147483647" required/>
+      </label>
+
+      <label>Profissão:
+        <input type="text" name="profissao" />
+      </label>
+
+      <label>Amizades:
+        <select name="amizades" multiple>
+          <option value="" disabled>— selecione zero ou mais —</option>
+          {% for lut in lutadores %}
+            <option value="{{ lut.id_lutador }}">{{ lut.nome }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <label>Inimizades:
+        <select name="inimizades" multiple>
+          <option value="" disabled>— selecione zero ou mais —</option>
+          {% for lut in lutadores %}
+            <option value="{{ lut.id_lutador }}">{{ lut.nome }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <label>História:
+        <textarea name="historia"></textarea>
+      </label>
+
+      <div class="conteudo2-botoes">
+        <button type="submit" class="conteudo2-botao">Criar</button>
+      </div>
+    </form>
+  </main>
+{% endblock %}
