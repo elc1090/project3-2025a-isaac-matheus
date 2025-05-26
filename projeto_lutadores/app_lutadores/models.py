@@ -7,9 +7,15 @@ class Lutador(models.Model):
     Campos:
       - id_lutador: auto incremento, primary key
       - nome: nome do lutador
+      - idade: idade do lutador
+      - profissao: profissão do lutador
+      - historia: texto com a história do lutador
     """
     id_lutador = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255)
+    idade = models.IntegerField(default=18)  # ou null=True, blank=True
+    profissao = models.CharField(max_length=255, default='Desconhecida')
+    historia = models.TextField(default='Sem história cadastrada.')
 
     class Meta:
         db_table = 'lutador'
