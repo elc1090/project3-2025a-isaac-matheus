@@ -1,0 +1,15 @@
+@import url('style.css');
+
+.golpe-card {
+  background-color: #8FBC8F;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: #FFF2E7;
+  transition: background-color 0.3s ease;
+}
+
+.golpe-card:hover {
+  background-color: #036633;
+}

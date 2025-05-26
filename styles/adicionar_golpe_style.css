@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+body {
+  background: linear-gradient(90deg, #011e17, #013529, #034233, #2a6f5a, #5b9c83, #8FBC8F, #c1dcd1);
+  font-family: 'Times New Roman', Times, serif;
+  color: #FFF2E7;
+  padding: 2rem;
+}
+
+.cabecalho {
+  text-align: center;
+}
+
+.cabecalho img {
+  width: 128px;
+  height: 128px;
+}
+
+.cabecalho2-titulo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
+  color: #FFF2E7;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.conteudo2 {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.conteudo2 label {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea, select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.conteudo2-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.conteudo2-botao {
+  background-color: #8FBC8F;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  font-size: 20px;
+  color: #FFF2E7;
+}
+
+.conteudo2-botao:hover {
+  background-color: #036633;
+}
