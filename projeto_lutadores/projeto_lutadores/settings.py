@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'app_lutadores.middleware.LoginRequiredMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 LOGIN_URL = 'login'  # ou o nome da URL de login
@@ -125,9 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'projeto_lutadores' / 'static'
-]
+STATICFILES_DIRS = []
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
