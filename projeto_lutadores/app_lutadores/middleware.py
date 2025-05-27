@@ -2,7 +2,8 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.conf import settings
 
-EXEMPT_URLS = [reverse('login'), reverse('logout')]  # adicione outras URLs públicas
+EXEMPT_VIEWS = ['login', 'logout']
+EXEMPT_PATH_PREFIXES = ['/static/', '/media/']
 
 class LoginRequiredMiddleware:
     """
