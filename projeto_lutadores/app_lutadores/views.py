@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import *
 
@@ -108,12 +109,12 @@ def editar_lutador_view(request, id_lutador):
 
     return redirect('ver_lutador', id_lutador=lutador.id_lutador)
 
-
 def adicionar_golpe_view(request):
-    """
-    View para adicionar um golpe a um lutador.
-    Exibe um formulário para selecionar o lutador e inserir os dados do golpe.
-    """
+    usuario_id = request.session.get('usuario_id')
+    if not usuario_id:
+        return redirect('login')
+
+    usuario = Usuario.objects.get(pk=usuario_id)
     lutadores = Lutador.objects.all()
 
     if request.method == 'POST':
@@ -130,12 +131,14 @@ def adicionar_golpe_view(request):
             nome=nome,
             tipo=tipo,
             descricao=descricao,
-            forca=forca
+            forca=forca,
+            usuario=usuario 
         )
 
         return redirect('home')
 
     return render(request, 'adicionar_golpe.html', {'lutadores': lutadores})
+
 
 def lista_golpes_view(request):
     golpes = Golpe.objects.select_related('lutador').all()
