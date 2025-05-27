@@ -16,9 +16,13 @@ Isaac - Sistemas para internet
 
 -CSS
 
+-Javascript
+
 -Python
 
 -Django
+
+-Supabase (banco de dados remoto usando PostgreSQL)
 
 #### Ambiente de desenvolvimento
 -VS Code
@@ -32,13 +36,13 @@ Isaac - Sistemas para internet
 
 - Python 3.10 ou superior
 - Django 5.2.1
-- Ambiente virtual (recomendado)
+- Whitenoise (para lidar com arquivos estáticos fora de ambiente de desenvolvimento)
 
 ##  Como rodar o projeto
 
 1. **Clone ou extraia o projeto em uma pasta**
 2. **Abra o terminal na pasta do projeto**
-3. **Crie o ambiente virtual** (caso ainda não tenha):
+3. **Crie um ambiente virtual**:
    ```bash
    py -m venv venv
    ```
@@ -58,15 +62,19 @@ Isaac - Sistemas para internet
    ```bash
    pip install django
    ```
-
-6. **Rode as migrações**:
+6. **Instale o Whitenoise**:
    ```bash
-   py manage.py migrate
+   pip install whitenoise
    ```
 
-7. **Crie os usuários automaticamente**:
+7. **Crie as migrações**:
    ```bash
-   py criar_usuarios.py
+   py manage.py makemigrations
+   ```
+
+7. **Faça as migrações**:
+   ```bash
+   py manage.py migrate
    ```
 
 8. **Inicie o servidor**:
@@ -74,21 +82,22 @@ Isaac - Sistemas para internet
    py manage.py runserver
    ```
 
-9. **Acesse o sistema**:
-   - [http://127.0.0.1:8000/accounts/login/](http://127.0.0.1:8000/accounts/login/)
+9. **Acesse o site**:
+   - [http://127.0.0.1:8000/accounts/login/]([http://127.0.0.1:8000/accounts/login/](https://yucky-noreen-sou-aluno-2ab614ec.koyeb.app/login/))
 
 ## 👤 Usuários cadastrados
 
-| Usuário     | Senha     |
-|-------------|-----------|
-| johnwik25   | nerdgeek  |
-| manolo123   | qwe123    |
+| Usuário             |Senha |
+|---------------------|------|
+| Homem_existente     | 123  |
+| Homem_inexistente   | 123  |
+| Homem_torta         | 123  |
 
 ##  Segurança
 
 - O logout é feito via formulário `POST` com CSRF token.
 - Não é permitido logout via método GET.
-- Login obrigatório para acessar a página principal (`/`).
+- Login obrigatório para acessar qualquer parte do site, atualmente só tem 3 logins, sem possibilidade de registrar mais.
 
 ##  Estrutura básica
 
@@ -106,8 +115,7 @@ projeto_lutadores_login/
 
 ##  Observações
 
-- O Django Admin está disponível em `/admin/`, mas requer criação de superusuário (`createsuperuser`).
-- O projeto usa SQLite por padrão.
+
 
 ---
 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2025a) em 2025a
