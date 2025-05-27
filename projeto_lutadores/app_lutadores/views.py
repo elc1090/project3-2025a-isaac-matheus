@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
+from django.contrib import messages
 from .models import *
 
 
@@ -23,10 +24,22 @@ def remover_lutador(request, id_lutador):
     return redirect('home')
 
 def criar_lutador_view(request):
+    usuario_id = request.session.get('usuario_id')
+    if not usuario_id:
+        return redirect('login')
+
     lutadores = Lutador.objects.all()
+    usuario = Usuario.objects.get(pk=usuario_id)
 
     if request.method == 'POST':
-        nome = request.POST.get('nome')
+        # Verifica limite somente após POST
+        if Lutador.objects.filter(usuario=usuario).count() >= 2:
+            messages.error(request, "Você já atingiu o limite de 2 lutadores.")
+            return render(request, 'criar_lutador.html', {
+                'lutadores': lutadores
+            })
+
+        nome = request.POST['nome']
         idade = request.POST.get('idade') or None
         profissao = request.POST.get('profissao') or ''
         historia = request.POST.get('historia') or ''
@@ -35,22 +48,17 @@ def criar_lutador_view(request):
             nome=nome,
             idade=idade,
             profissao=profissao,
-            historia=historia
+            historia=historia,
+            usuario=usuario
         )
 
         for amigo_id in request.POST.getlist('amizades'):
             if amigo_id:
-                Amizade.objects.create(
-                    lutador_id=novo.id_lutador,
-                    amigo_id=int(amigo_id)
-                )
+                Amizade.objects.create(lutador=novo, amigo_id=int(amigo_id))
 
         for inimigo_id in request.POST.getlist('inimizades'):
             if inimigo_id:
-                Inimizade.objects.create(
-                    lutador_id=novo.id_lutador,
-                    inimigo_id=int(inimigo_id)
-                )
+                Inimizade.objects.create(lutador=novo, inimigo_id=int(inimigo_id))
 
         return redirect('home')
 
@@ -159,6 +167,22 @@ def remover_golpe_view(request, id_golpe):
     golpe = get_object_or_404(Golpe, id_golpe=id_golpe)
     golpe.delete()
     return redirect('lista_golpes')
+
+def login_view(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        senha = request.POST.get('senha')
+        try:
+            usuario = Usuario.objects.get(nome=nome, senha=senha)
+            request.session['usuario_id'] = usuario.id
+            return redirect('home')
+        except Usuario.DoesNotExist:
+            messages.error(request, 'Usuário ou senha inválidos')
+    return render(request, 'login.html')
+
+def logout_view(request):
+    request.session.flush()
+    return redirect('login')
 
 def exemplo_view(request):
     return HttpResponse("Essa é a view de exemplo") # retorna uma resposta em html

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p1xr_bk3e@-hs7pits%x0$jesj%qcnhn5hqei)2gppd)j^%ejd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,7 +48,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app_lutadores.middleware.LoginRequiredMiddleware',
 ]
+
+LOGIN_URL = 'login'  # ou o nome da URL de login
 
 ROOT_URLCONF = 'projeto_lutadores.urls'
 

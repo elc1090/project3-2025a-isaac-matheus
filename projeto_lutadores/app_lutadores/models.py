@@ -1,5 +1,23 @@
 from django.db import models
 
+class Usuario(models.Model):
+    """
+    É o usuário que faz o login no banco de dados.
+    Campos:
+      - id: auto incremento, primary key
+      - nome: nome do usuário
+      - senha: senha do usuário
+    """
+    id = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=255)
+    senha = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'usuario'
+
+    def __str__(self):
+        return self.nome
+
 
 class Lutador(models.Model):
     """
@@ -10,12 +28,19 @@ class Lutador(models.Model):
       - idade: idade do lutador
       - profissao: profissão do lutador
       - historia: texto com a história do lutador
+      - usuario: FK para Usuario (quem criou)
     """
     id_lutador = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255)
     idade = models.IntegerField(default=18)  # ou null=True, blank=True
     profissao = models.CharField(max_length=255, default='Desconhecida')
     historia = models.TextField(default='Sem história cadastrada.')
+    usuario = models.ForeignKey(
+        Usuario,
+        on_delete=models.CASCADE,
+        db_column='usuario_id',
+        related_name='lutadores'
+    )
 
     class Meta:
         db_table = 'lutador'
@@ -34,6 +59,7 @@ class Golpe(models.Model):
       - tipo: membro do corpo (cabeça, braços, pernas, especial)
       - descricao: descrição do golpe
       - forca: intensidade, velocidade (leve, médio, forte)
+      - usuario: FK para Usuario (quem criou)
     """
     id_golpe = models.AutoField(primary_key=True)
     lutador = models.ForeignKey(
@@ -46,6 +72,12 @@ class Golpe(models.Model):
     tipo = models.CharField(max_length=30)
     descricao = models.CharField(max_length=255)
     forca = models.CharField(max_length=30)
+    usuario = models.ForeignKey(
+        Usuario,
+        on_delete=models.CASCADE,
+        db_column='usuario_id',
+        related_name='golpes'
+    )
 
     class Meta:
         db_table = 'golpe'

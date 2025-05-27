@@ -14,6 +14,8 @@ urlpatterns = [
     path('golpe/<int:id_golpe>/', ver_golpe_view, name='ver_golpe'),
     path('editar_golpe/<int:id_golpe>/', editar_golpe_view, name='editar_golpe'),
     path('remover_golpe/<int:id_golpe>/', remover_golpe_view, name='remover_golpe'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
     #path('criar_lutador/', criar_lutador_view, name='criar_lutador'),
     path('exemplo/', exemplo_view, name='exemplo'),  
 ]
