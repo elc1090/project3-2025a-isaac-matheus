@@ -83,7 +83,7 @@ Isaac - Sistemas para internet
    ```
 
 9. **Acesse o site**:
-   - [http://127.0.0.1:8000/accounts/login/]([http://127.0.0.1:8000/accounts/login/](https://yucky-noreen-sou-aluno-2ab614ec.koyeb.app/login/))
+   - [[http://127.0.0.1:8000/accounts/login/]([http://127.0.0.1:8000/accounts/login/](https://yucky-noreen-sou-aluno-2ab614ec.koyeb.app/login/)](https://yucky-noreen-sou-aluno-2ab614ec.koyeb.app))
 
 ## 👤 Usuários cadastrados
 
