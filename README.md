@@ -3,7 +3,7 @@
 Este é um projeto em Django que permite os usuários (3 atualmente criados artificialmente) criar lutadores e golpes para esses lutadores para coloca-los no banco de dados. É permitido editar e remover lutadores e golpes. Cada usuário só pode criar 2 lutadores, mas quantos golpes quiserem.
 O projeto usa Supabase como banco de dados remoto e Koyeb para o deploy.
 
-![Screenshot do Site](projeto_lutadores/staticfiles/screenshot_typesouls.jpg "Screenshot do projeto")
+![Screenshot do Site](projeto_lutadores/staticfiles/Screenshot_typesouls2.jpg "Screenshot do projeto")
 
 ### Desenvolvedores
 Matheus - Sistemas de Informação
